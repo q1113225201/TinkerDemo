@@ -1,45 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.sjl.tinkerdemo.MainActivity">
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/btnLoadPatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="load patch"/>
+        android:id="@+id/btn_fetch_update"
+        android:text="获取补丁"/>
     <Button
-        android:id="@+id/btnClearPatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="clear patch"/>
+        android:id="@+id/btn_request_config"
+        android:text="请求配置"/>
     <Button
-        android:id="@+id/btnLoadLib"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="load lib"/>
+        android:id="@+id/btn_clear"
+        android:text="清理补丁包"/>
     <Button
-        android:id="@+id/btnShowInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="showInfo"/>
+        android:id="@+id/btn_kill"
+        android:text="清理补丁包"/>
     <Button
-        android:id="@+id/btnJump"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jump"/>
-    <Button
-        android:id="@+id/btnLog1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LOG1"/>
-    <Button
-        android:id="@+id/btnLog2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LOG2"/>
+        android:id="@+id/btn_jump"
+        android:text="跳转"/>
 
 </LinearLayout>

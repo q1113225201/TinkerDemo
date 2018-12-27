@@ -4,8 +4,8 @@ apply plugin: 'tinkerpatch-support'
  * TODO: 请按自己的需求修改为适应自己工程的参数
  */
 def bakPath = file("${buildDir}/bakApk/")
-def baseInfo = "app-1.0.0-1112-12-49-34"
-def variantName = "debug"
+def baseInfo = "app-1.0.0-1227-20-14-28"
+def variantName = "release"
 
 /**
  * 对于插件各参数的详细解析请参考
@@ -19,7 +19,8 @@ tinkerpatchSupport {
         需要你手动修改'tinker.sample.android.app'本示例的包名为你自己的包名, com.xxx前缀的包名不用修改
      **/
     tinkerEnable = true
-    reflectApplication = false
+    /** 是否使用一键接入功能  **/
+    reflectApplication = true
     /**
      * 是否开启加固模式，只能在APK将要进行加固时使用，否则会patch失败。
      * 如果只在某个渠道使用了加固，可使用多flavors配置
@@ -33,7 +34,7 @@ tinkerpatchSupport {
 
     autoBackupApkPath = "${bakPath}"
 
-    appKey = "f938475486f91936"
+    appKey = "142039a9d8d9c586"
 
     /** 注意: 若发布新的全量包, appVersion一定要更新 **/
     appVersion = "1.0.0"

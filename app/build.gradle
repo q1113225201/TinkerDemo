@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+
     defaultConfig {
         applicationId "com.sjl.tinkerdemo"
         minSdkVersion 18
@@ -10,7 +10,8 @@ android {
         versionCode 1
         versionName "1.0.0"
         multiDexEnabled true
-        multiDexKeepProguard file("tinkerMultidexKeep.pro") //keep specific classes using proguard syntax
+        multiDexKeepProguard file("tinkerMultidexKeep.pro")
+        //keep specific classes using proguard syntax
     }
     signingConfigs {
         debug {
@@ -48,10 +49,13 @@ dependencies {
     implementation "com.android.support:appcompat-v7:25.3.1"
     implementation "com.android.support:multidex:1.0.2"
     //若使用annotation需要单独引用,对于tinker的其他库都无需再引用
-    annotationProcessor("com.tinkerpatch.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    annotationProcessor("com.tinkerpatch.tinker:tinker-android-anno:${TINKER_VERSION}") {
+        changing = true
+    }
     compileOnly("com.tinkerpatch.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
-    implementation("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") { changing = true }
+    implementation("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") {
+        changing = true
+    }
 }
 apply from: 'tinkerpatch.gradle'
-
-
