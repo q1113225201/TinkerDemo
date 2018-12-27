@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.sjl.tinkerdemo"
         minSdkVersion 18
         targetSdkVersion 25
         versionCode 1
-        versionName "v1.0.1"
+        versionName "1.0.0"
         multiDexEnabled true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexKeepProguard file("tinkerMultidexKeep.pro") //keep specific classes using proguard syntax
     }
     signingConfigs {
         debug {
@@ -22,11 +22,17 @@ android {
     }
     buildTypes {
         debug {
-            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            minifyEnabled false
             signingConfig signingConfigs.debug
         }
 
         release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.debug
+
+            proguardFiles 'proguardRules.pro', getDefaultProguardFile('proguard-android.txt')
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            signingConfig signingConfigs.debug
         }
@@ -38,18 +44,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile("com.tencent.tinker:tinker-android-lib:${TINKER_VERSION}") { changing = true }
-    provided("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
-    compile project(':loglib')
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support:multidex:1.0.1'
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:25.3.1"
+    implementation "com.android.support:multidex:1.0.2"
+    //若使用annotation需要单独引用,对于tinker的其他库都无需再引用
+    annotationProcessor("com.tinkerpatch.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
+    compileOnly("com.tinkerpatch.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
+    implementation("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") { changing = true }
 }
-apply from: 'tinker.gradle'
+apply from: 'tinkerpatch.gradle'
 
 

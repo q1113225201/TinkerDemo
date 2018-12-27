@@ -1,4 +1,0 @@
-1、执行assemble生成old.apk
-2、修改完内容后，将old.apk作为基准apk，在tinker.gradle进行设置ext
-3、执行tinkerPatchDebug或tinkerPatchRelease生成补丁包在output/tinkerPatch中
-4、patch_signed_7zip.apk为补丁包

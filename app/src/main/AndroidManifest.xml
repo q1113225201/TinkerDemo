@@ -20,12 +20,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".service.TinkerResultService"
-            android:enabled="true"
-            android:exported="true" />
-
-        <activity android:name=".AnotherActivity"></activity>
     </application>
 
 </manifest>
