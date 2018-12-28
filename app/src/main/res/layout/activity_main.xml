@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_kill"
-        android:text="清理补丁包"/>
+        android:text="杀死进程"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

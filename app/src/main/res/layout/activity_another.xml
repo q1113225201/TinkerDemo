@@ -13,10 +13,29 @@
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="加" />
+        android:text="加固 加" />
+
     <Button
         android:id="@+id/btn_sub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="减" />
+        android:text="加固 减" />
+
+    <Button
+        android:id="@+id/btn_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加固 显示" />
+
+    <Button
+        android:id="@+id/btn_jump"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加固 跳转新增页面" />
+    <Button
+        android:id="@+id/btn_jump2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加固 跳转新增页面2" />
+
 </LinearLayout>
